@@ -1,9 +1,12 @@
-import 'package:bloc_architecture/feature/auth/presentation/login_page.dart';
+import 'package:bloc_architecture/feature/auth/presentation/sign_in/bloc/sign_in_bloc.dart';
+import 'package:bloc_architecture/feature/auth/presentation/sign_in/sign_in_page.dart';
 import 'package:bloc_architecture/feature/chat/presentation/chat_page.dart';
 import 'package:bloc_architecture/feature/community/presentation/community_page.dart';
 import 'package:bloc_architecture/feature/home/presentation/home_page.dart';
 import 'package:bloc_architecture/feature/user/presentation/profile_page.dart';
+import 'package:bloc_architecture/injection/injection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 part 'app_route_state.dart';
@@ -20,7 +23,10 @@ final routes = GoRouter(
       path: '/${AppRouteState.login.path}',
       name: AppRouteState.login.name,
       pageBuilder: (context, state) => appPageBuilder(
-        const LoginPage(),
+        BlocProvider(
+          create: (context) => SignInBloc(signInUseCase: getIt()),
+          child: const SignInPage(),
+        ),
       ),
     ),
     ShellRoute(
@@ -70,5 +76,8 @@ Page<dynamic> appPageBuilder(
       transitionsBuilder: (context, animation, secondAnimation, child) =>
           isNoTransition
               ? child
-              : FadeTransition(opacity: animation, child: child),
+              : FadeTransition(
+                  opacity: animation,
+                  child: child,
+                ),
     );

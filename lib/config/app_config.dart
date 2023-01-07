@@ -1,3 +1,5 @@
+import 'package:bloc_architecture/injection/injection.dart';
+
 enum Flavor { dev, live }
 
 class AppConfig {
@@ -20,8 +22,12 @@ Future<void> initializedApp({
   bool isDevicePreview = false,
 }) async {
   if (flavor == Flavor.dev) {
+    configureDependencies(env: 'dev');
+
     appConfig = AppConfig.dev();
   } else {
+    configureDependencies(env: 'live');
+
     appConfig = AppConfig.live();
   }
 }
