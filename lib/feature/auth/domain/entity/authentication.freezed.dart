@@ -114,7 +114,7 @@ class __$$_AuthenticationCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Authentication implements _Authentication {
-  _$_Authentication(
+  const _$_Authentication(
       {required this.accessToken, this.refreshToken, this.tokenType});
 
   @override
@@ -154,7 +154,7 @@ class _$_Authentication implements _Authentication {
 }
 
 abstract class _Authentication implements Authentication {
-  factory _Authentication(
+  const factory _Authentication(
       {required final String accessToken,
       final String? refreshToken,
       final String? tokenType}) = _$_Authentication;

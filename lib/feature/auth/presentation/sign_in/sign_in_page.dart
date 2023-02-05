@@ -16,10 +16,10 @@ class _SignInPageState extends State<SignInPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  final formKey = GlobalKey<FormState>();
+
   @override
   void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
     super.dispose();
   }
 
@@ -47,51 +47,84 @@ class _SignInPageState extends State<SignInPage> {
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('LoginPage'),
+            title: const Text('SignInPage'),
           ),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              children: [
-                const SizedBox(height: 24),
-                const FlutterLogo(size: 48),
-                const SizedBox(height: 16),
-                TextField(
-                  controller: emailController,
-                  textInputAction: TextInputAction.done,
-                  maxLength: 20,
-                  decoration: const InputDecoration(
-                    label: Text('Email'),
-                    counterText: '',
+          body: Form(
+            key: formKey,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  const SizedBox(height: 24),
+                  const FlutterLogo(size: 48),
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    key: const Key('emailTextField'),
+                    controller: emailController,
+                    textInputAction: TextInputAction.done,
+                    maxLength: 20,
+                    decoration: InputDecoration(
+                      label: const Text('Email'),
+                      counterText: '',
+                      suffixIcon: InkWell(
+                        onTap: () => emailController.clear(),
+                        child: const Icon(Icons.cancel),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value?.isNotEmpty == true) {
+                        return null;
+                      }
+
+                      return '아이디를 입력해주세요';
+                    },
                   ),
-                ),
-                const SizedBox(height: 16),
-                TextField(
-                  controller: passwordController,
-                  textInputAction: TextInputAction.done,
-                  maxLength: 15,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    label: Text('Password'),
-                    counterText: '',
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    key: const Key('passwordTextField'),
+                    controller: passwordController,
+                    textInputAction: TextInputAction.done,
+                    maxLength: 15,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      label: const Text('Password'),
+                      counterText: '',
+                      suffixIcon: InkWell(
+                        onTap: () => passwordController.clear(),
+                        child: const Icon(Icons.cancel),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value?.isNotEmpty == true) {
+                        return null;
+                      }
+
+                      return '비밀번호를 입력해주세요';
+                    },
                   ),
-                ),
-                const SizedBox(height: 16),
-                BlocBuilder<SignInBloc, SignInState>(
-                  builder: (context, state) => state.maybeWhen(
-                    loading: () => const CircularProgressIndicator.adaptive(),
-                    orElse: () => ElevatedButton(
-                      onPressed: () => context.read<SignInBloc>().add(
-                            SignInRequested(
-                              email: emailController.text,
-                              password: emailController.text,
-                            ),
-                          ),
-                      child: const Text('Login'),
+                  const SizedBox(height: 16),
+                  BlocBuilder<SignInBloc, SignInState>(
+                    builder: (context, state) => state.maybeWhen(
+                      loading: () => const CircularProgressIndicator.adaptive(),
+                      orElse: () => ElevatedButton(
+                        onPressed: () {
+                          if (!formKey.currentState!.validate()) {
+                            return;
+                          }
+
+                          context.read<SignInBloc>().add(
+                                SignInRequested(
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                ),
+                              );
+                        },
+                        child: const Text('Login'),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

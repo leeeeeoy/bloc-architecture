@@ -31,7 +31,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       ));
 
       emit(const SignInSucceed());
-    } catch (e) {
+    } catch (_) {
       emit(const SignInError());
     }
   }

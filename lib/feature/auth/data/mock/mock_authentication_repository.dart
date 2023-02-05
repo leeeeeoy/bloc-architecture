@@ -9,7 +9,7 @@ class MockAuthenticationRepository implements AuthenticationRepository {
   @override
   Future<Authentication> signIn(SignInUseCaseParam param) =>
       Future.delayed(const Duration(seconds: 1)).then(
-        (value) => Authentication(accessToken: 'accessToken'),
+        (value) => const Authentication(accessToken: 'accessToken'),
       );
 
   @override
