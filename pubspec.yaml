@@ -16,7 +16,7 @@ dependencies:
     sdk: flutter
 
   # state management
-  flutter_bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
 
   # dependency injection
   get_it: ^7.2.0
