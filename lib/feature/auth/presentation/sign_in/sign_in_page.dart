@@ -20,6 +20,8 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
     super.dispose();
   }
 
@@ -46,9 +48,7 @@ class _SignInPageState extends State<SignInPage> {
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
-          appBar: AppBar(
-            title: const Text('SignInPage'),
-          ),
+          appBar: AppBar(title: const Text('SignInPage')),
           body: Form(
             key: formKey,
             child: Padding(

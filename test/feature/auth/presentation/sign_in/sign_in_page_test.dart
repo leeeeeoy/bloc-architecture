@@ -15,11 +15,18 @@ import '../../../../mock/router.dart';
 class MockSignInBloc extends MockBloc<SignInEvent, SignInState>
     implements SignInBloc {}
 
+class MockNavigatorObserver extends Mock implements NavigatorObserver {}
+
+class FakeRoute extends Fake implements Route {}
+
 void main() {
   late SignInBloc signInBloc;
+  late NavigatorObserver navigatorObserver;
 
   setUp(() {
     signInBloc = MockSignInBloc();
+    registerFallbackValue(FakeRoute());
+    navigatorObserver = MockNavigatorObserver();
   });
 
   group('SignInPage', () {
@@ -41,7 +48,30 @@ void main() {
       expect(find.byType(ElevatedButton), findsOneWidget);
     });
 
-    testWidgets('email, password 입력 테스트', (tester) async {
+    testWidgets('키보드가 올라왔을 때, 화면을 누르면 키보드가 내려간다.', (tester) async {
+      when(() => signInBloc.state).thenAnswer(
+        (invocation) => const SignInInitial(),
+      );
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: BlocProvider.value(
+            value: signInBloc,
+            child: const SignInPage(),
+          ),
+        ),
+      );
+
+      await tester.tap(find.byKey(const Key('emailTextField')));
+
+      expect(tester.testTextInput.isVisible, isTrue);
+
+      await tester.tap(find.byType(AppBar));
+
+      expect(tester.testTextInput.isVisible, isFalse);
+    });
+
+    testWidgets('email, password를 입력한다', (tester) async {
       when(() => signInBloc.state).thenAnswer(
         (invocation) => const SignInInitial(),
       );
@@ -69,7 +99,7 @@ void main() {
       expect(find.text('비밀번호도 입력해보겠습니다'), findsOneWidget);
     });
 
-    testWidgets('빈 값 입력 시, 오류 메세지 확인', (tester) async {
+    testWidgets('빈 값 입력 시, 오류 메세지를 띄운다', (tester) async {
       when(() => signInBloc.state).thenAnswer(
         (invocation) => const SignInInitial(),
       );
@@ -91,7 +121,7 @@ void main() {
       expect(find.text('비밀번호를 입력해주세요'), findsOneWidget);
     });
 
-    testWidgets('아이콘 클릭 시 텍스트가 지워진다', (tester) async {
+    testWidgets('IconButton 클릭 시 email, password가 삭제된다.', (tester) async {
       when(() => signInBloc.state).thenAnswer(
         (invocation) => const SignInInitial(),
       );
@@ -107,14 +137,19 @@ void main() {
 
       await tester.enterText(
         find.byKey(const Key('emailTextField')),
-        'email',
+        '아이디 입력해보겠습니다',
       );
 
-      expect(find.text('email'), findsOneWidget);
+      await tester.enterText(
+        find.byKey(const Key('passwordTextField')),
+        '비밀번호도 입력해보겠습니다',
+      );
 
       await tester.tap(find.byIcon(Icons.cancel).first);
+      await tester.tap(find.byIcon(Icons.cancel).last);
 
-      expect(find.text('email'), findsNothing);
+      expect(find.text('아이디 입력해보겠습니다'), findsNothing);
+      expect(find.text('비밀번호도 입력해보겠습니다'), findsNothing);
     });
 
     testWidgets('버튼을 눌렀을 때, 이벤트가 들어간다', (tester) async {
@@ -158,7 +193,7 @@ void main() {
       ).called(1);
     });
 
-    testWidgets('로딩 시 인디케이터 확인', (tester) async {
+    testWidgets('로딩 시, 인디케이터를 띄운다.', (tester) async {
       when(() => signInBloc.state).thenAnswer(
         (invocation) => const SignInLoading(),
       );
@@ -175,7 +210,7 @@ void main() {
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
 
-    testWidgets('에러시 다이얼로그 확인', (tester) async {
+    testWidgets('에러 시, 다이얼로그를 띄운다.', (tester) async {
       whenListen(
         signInBloc,
         Stream.fromIterable([const SignInLoading(), const SignInError()]),
@@ -196,7 +231,33 @@ void main() {
       expect(find.byType(CupertinoAlertDialog), findsOneWidget);
     });
 
-    testWidgets('성공 시 화면 이동', (tester) async {
+    testWidgets('다이얼로그의 확인 버튼을 누르면 다이얼로그가 닫힌다.', (tester) async {
+      whenListen(
+        signInBloc,
+        Stream.fromIterable([const SignInLoading(), const SignInError()]),
+        initialState: const SignInInitial(),
+      );
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: BlocProvider.value(
+            value: signInBloc,
+            child: const SignInPage(),
+          ),
+          navigatorObservers: [navigatorObserver],
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      expect(find.byType(CupertinoAlertDialog), findsOneWidget);
+
+      await tester.tap(find.byType(CupertinoDialogAction));
+
+      verify(() => navigatorObserver.didPop(any(), any()));
+    });
+
+    testWidgets('성공 시, HomePage로 이동한다.', (tester) async {
       whenListen(
         signInBloc,
         Stream.fromIterable([

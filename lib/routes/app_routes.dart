@@ -16,7 +16,7 @@ final shellRouteNavigatorKey = GlobalKey<NavigatorState>();
 
 final routes = GoRouter(
   initialLocation: '/${AppRouteState.login.path}',
-  debugLogDiagnostics: true,
+  debugLogDiagnostics: false,
   navigatorKey: rootNavigatorKey,
   routes: [
     GoRoute(
@@ -66,18 +66,12 @@ final routes = GoRouter(
   ],
 );
 
-Page<dynamic> appPageBuilder(
-  Widget child, {
-  bool isNoTransition = true,
-}) =>
+Page<dynamic> appPageBuilder(Widget child, {bool isNoTransition = true}) =>
     CustomTransitionPage(
       child: child,
       transitionDuration: const Duration(milliseconds: 200),
       transitionsBuilder: (context, animation, secondAnimation, child) =>
           isNoTransition
               ? child
-              : FadeTransition(
-                  opacity: animation,
-                  child: child,
-                ),
+              : FadeTransition(opacity: animation, child: child),
     );
