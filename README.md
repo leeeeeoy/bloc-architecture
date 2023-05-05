@@ -1,17 +1,31 @@
 # bloc_architecture
 
-A new Flutter project.
+Bloc을 이용한 Architecture 작성 연습을 위한 프로젝트입니다.
 
-## Getting Started
+<br/>
 
-This project is a starting point for a Flutter application.
+## 기본 구조
 
-A few resources to get you started if this is your first Flutter project:
+Clean Architecture를 참고하여 3-Layer(Data, Domain, Presentation) 구조를 따라 작성했습니다.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<br/>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Test coverage
+
+test 실행
+
+```zsh
+flutter test --coverage   
+```
+
+<br/>
+
+coverage 결과 확인
+
+```zsh
+genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html      
+```
+
+
 
