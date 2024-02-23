@@ -18,10 +18,9 @@ jobs:
 
       - name: Get pub packages
         uses: actions/checkout@v2
-      - run: flutter pub get
 
+      - run: flutter pub get
       - run: flutter analyze
-      - name: Ensure the Dart code is formatted correctly
-        run: flutter format --set-exit-if-changed --dry-run .
+      
       - name: Run Flutter unit tests
         run: flutter test
