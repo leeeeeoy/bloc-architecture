@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'graphql_base_response.dart';
 
@@ -12,7 +12,7 @@ part of 'graphql_base_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GraphqlBaseResponse<T> {
@@ -77,30 +77,32 @@ class _$GraphqlBaseResponseCopyWithImpl<T, $Res,
 }
 
 /// @nodoc
-abstract class _$$GraphqlSucceedResponseCopyWith<T, $Res> {
-  factory _$$GraphqlSucceedResponseCopyWith(_$GraphqlSucceedResponse<T> value,
-          $Res Function(_$GraphqlSucceedResponse<T>) then) =
-      __$$GraphqlSucceedResponseCopyWithImpl<T, $Res>;
+abstract class _$$GraphqlSucceedResponseImplCopyWith<T, $Res> {
+  factory _$$GraphqlSucceedResponseImplCopyWith(
+          _$GraphqlSucceedResponseImpl<T> value,
+          $Res Function(_$GraphqlSucceedResponseImpl<T>) then) =
+      __$$GraphqlSucceedResponseImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data});
 }
 
 /// @nodoc
-class __$$GraphqlSucceedResponseCopyWithImpl<T, $Res>
+class __$$GraphqlSucceedResponseImplCopyWithImpl<T, $Res>
     extends _$GraphqlBaseResponseCopyWithImpl<T, $Res,
-        _$GraphqlSucceedResponse<T>>
-    implements _$$GraphqlSucceedResponseCopyWith<T, $Res> {
-  __$$GraphqlSucceedResponseCopyWithImpl(_$GraphqlSucceedResponse<T> _value,
-      $Res Function(_$GraphqlSucceedResponse<T>) _then)
+        _$GraphqlSucceedResponseImpl<T>>
+    implements _$$GraphqlSucceedResponseImplCopyWith<T, $Res> {
+  __$$GraphqlSucceedResponseImplCopyWithImpl(
+      _$GraphqlSucceedResponseImpl<T> _value,
+      $Res Function(_$GraphqlSucceedResponseImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
-    return _then(_$GraphqlSucceedResponse<T>(
-      data: null == data
+    return _then(_$GraphqlSucceedResponseImpl<T>(
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as T,
@@ -110,8 +112,8 @@ class __$$GraphqlSucceedResponseCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$GraphqlSucceedResponse<T> implements GraphqlSucceedResponse<T> {
-  const _$GraphqlSucceedResponse({required this.data});
+class _$GraphqlSucceedResponseImpl<T> implements GraphqlSucceedResponse<T> {
+  const _$GraphqlSucceedResponseImpl({required this.data});
 
   @override
   final T data;
@@ -122,10 +124,10 @@ class _$GraphqlSucceedResponse<T> implements GraphqlSucceedResponse<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GraphqlSucceedResponse<T> &&
+            other is _$GraphqlSucceedResponseImpl<T> &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
@@ -136,9 +138,9 @@ class _$GraphqlSucceedResponse<T> implements GraphqlSucceedResponse<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GraphqlSucceedResponseCopyWith<T, _$GraphqlSucceedResponse<T>>
-      get copyWith => __$$GraphqlSucceedResponseCopyWithImpl<T,
-          _$GraphqlSucceedResponse<T>>(this, _$identity);
+  _$$GraphqlSucceedResponseImplCopyWith<T, _$GraphqlSucceedResponseImpl<T>>
+      get copyWith => __$$GraphqlSucceedResponseImplCopyWithImpl<T,
+          _$GraphqlSucceedResponseImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -206,19 +208,20 @@ class _$GraphqlSucceedResponse<T> implements GraphqlSucceedResponse<T> {
 
 abstract class GraphqlSucceedResponse<T> implements GraphqlBaseResponse<T> {
   const factory GraphqlSucceedResponse({required final T data}) =
-      _$GraphqlSucceedResponse<T>;
+      _$GraphqlSucceedResponseImpl<T>;
 
   T get data;
   @JsonKey(ignore: true)
-  _$$GraphqlSucceedResponseCopyWith<T, _$GraphqlSucceedResponse<T>>
+  _$$GraphqlSucceedResponseImplCopyWith<T, _$GraphqlSucceedResponseImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GraphqlErrorResponseCopyWith<T, $Res> {
-  factory _$$GraphqlErrorResponseCopyWith(_$GraphqlErrorResponse<T> value,
-          $Res Function(_$GraphqlErrorResponse<T>) then) =
-      __$$GraphqlErrorResponseCopyWithImpl<T, $Res>;
+abstract class _$$GraphqlErrorResponseImplCopyWith<T, $Res> {
+  factory _$$GraphqlErrorResponseImplCopyWith(
+          _$GraphqlErrorResponseImpl<T> value,
+          $Res Function(_$GraphqlErrorResponseImpl<T>) then) =
+      __$$GraphqlErrorResponseImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({GraphqlNetworkError graphqlNetworkError});
 
@@ -226,12 +229,12 @@ abstract class _$$GraphqlErrorResponseCopyWith<T, $Res> {
 }
 
 /// @nodoc
-class __$$GraphqlErrorResponseCopyWithImpl<T, $Res>
+class __$$GraphqlErrorResponseImplCopyWithImpl<T, $Res>
     extends _$GraphqlBaseResponseCopyWithImpl<T, $Res,
-        _$GraphqlErrorResponse<T>>
-    implements _$$GraphqlErrorResponseCopyWith<T, $Res> {
-  __$$GraphqlErrorResponseCopyWithImpl(_$GraphqlErrorResponse<T> _value,
-      $Res Function(_$GraphqlErrorResponse<T>) _then)
+        _$GraphqlErrorResponseImpl<T>>
+    implements _$$GraphqlErrorResponseImplCopyWith<T, $Res> {
+  __$$GraphqlErrorResponseImplCopyWithImpl(_$GraphqlErrorResponseImpl<T> _value,
+      $Res Function(_$GraphqlErrorResponseImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -239,7 +242,7 @@ class __$$GraphqlErrorResponseCopyWithImpl<T, $Res>
   $Res call({
     Object? graphqlNetworkError = null,
   }) {
-    return _then(_$GraphqlErrorResponse<T>(
+    return _then(_$GraphqlErrorResponseImpl<T>(
       graphqlNetworkError: null == graphqlNetworkError
           ? _value.graphqlNetworkError
           : graphqlNetworkError // ignore: cast_nullable_to_non_nullable
@@ -259,8 +262,8 @@ class __$$GraphqlErrorResponseCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$GraphqlErrorResponse<T> implements GraphqlErrorResponse<T> {
-  const _$GraphqlErrorResponse({required this.graphqlNetworkError});
+class _$GraphqlErrorResponseImpl<T> implements GraphqlErrorResponse<T> {
+  const _$GraphqlErrorResponseImpl({required this.graphqlNetworkError});
 
   @override
   final GraphqlNetworkError graphqlNetworkError;
@@ -271,10 +274,10 @@ class _$GraphqlErrorResponse<T> implements GraphqlErrorResponse<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GraphqlErrorResponse<T> &&
+            other is _$GraphqlErrorResponseImpl<T> &&
             (identical(other.graphqlNetworkError, graphqlNetworkError) ||
                 other.graphqlNetworkError == graphqlNetworkError));
   }
@@ -285,9 +288,9 @@ class _$GraphqlErrorResponse<T> implements GraphqlErrorResponse<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GraphqlErrorResponseCopyWith<T, _$GraphqlErrorResponse<T>> get copyWith =>
-      __$$GraphqlErrorResponseCopyWithImpl<T, _$GraphqlErrorResponse<T>>(
-          this, _$identity);
+  _$$GraphqlErrorResponseImplCopyWith<T, _$GraphqlErrorResponseImpl<T>>
+      get copyWith => __$$GraphqlErrorResponseImplCopyWithImpl<T,
+          _$GraphqlErrorResponseImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -356,10 +359,10 @@ class _$GraphqlErrorResponse<T> implements GraphqlErrorResponse<T> {
 abstract class GraphqlErrorResponse<T> implements GraphqlBaseResponse<T> {
   const factory GraphqlErrorResponse(
           {required final GraphqlNetworkError graphqlNetworkError}) =
-      _$GraphqlErrorResponse<T>;
+      _$GraphqlErrorResponseImpl<T>;
 
   GraphqlNetworkError get graphqlNetworkError;
   @JsonKey(ignore: true)
-  _$$GraphqlErrorResponseCopyWith<T, _$GraphqlErrorResponse<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GraphqlErrorResponseImplCopyWith<T, _$GraphqlErrorResponseImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

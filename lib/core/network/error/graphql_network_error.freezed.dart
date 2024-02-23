@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'graphql_network_error.dart';
 
@@ -12,7 +12,7 @@ part of 'graphql_network_error.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GraphqlNetworkError {
@@ -100,25 +100,25 @@ class _$GraphqlNetworkErrorCopyWithImpl<$Res, $Val extends GraphqlNetworkError>
 }
 
 /// @nodoc
-abstract class _$$GraphqlLinkExcepionCopyWith<$Res> {
-  factory _$$GraphqlLinkExcepionCopyWith(_$GraphqlLinkExcepion value,
-          $Res Function(_$GraphqlLinkExcepion) then) =
-      __$$GraphqlLinkExcepionCopyWithImpl<$Res>;
+abstract class _$$GraphqlLinkExcepionImplCopyWith<$Res> {
+  factory _$$GraphqlLinkExcepionImplCopyWith(_$GraphqlLinkExcepionImpl value,
+          $Res Function(_$GraphqlLinkExcepionImpl) then) =
+      __$$GraphqlLinkExcepionImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GraphqlLinkExcepionCopyWithImpl<$Res>
-    extends _$GraphqlNetworkErrorCopyWithImpl<$Res, _$GraphqlLinkExcepion>
-    implements _$$GraphqlLinkExcepionCopyWith<$Res> {
-  __$$GraphqlLinkExcepionCopyWithImpl(
-      _$GraphqlLinkExcepion _value, $Res Function(_$GraphqlLinkExcepion) _then)
+class __$$GraphqlLinkExcepionImplCopyWithImpl<$Res>
+    extends _$GraphqlNetworkErrorCopyWithImpl<$Res, _$GraphqlLinkExcepionImpl>
+    implements _$$GraphqlLinkExcepionImplCopyWith<$Res> {
+  __$$GraphqlLinkExcepionImplCopyWithImpl(_$GraphqlLinkExcepionImpl _value,
+      $Res Function(_$GraphqlLinkExcepionImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GraphqlLinkExcepion implements GraphqlLinkExcepion {
-  const _$GraphqlLinkExcepion();
+class _$GraphqlLinkExcepionImpl implements GraphqlLinkExcepion {
+  const _$GraphqlLinkExcepionImpl();
 
   @override
   String toString() {
@@ -126,9 +126,10 @@ class _$GraphqlLinkExcepion implements GraphqlLinkExcepion {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GraphqlLinkExcepion);
+        (other.runtimeType == runtimeType &&
+            other is _$GraphqlLinkExcepionImpl);
   }
 
   @override
@@ -223,29 +224,32 @@ class _$GraphqlLinkExcepion implements GraphqlLinkExcepion {
 }
 
 abstract class GraphqlLinkExcepion implements GraphqlNetworkError {
-  const factory GraphqlLinkExcepion() = _$GraphqlLinkExcepion;
+  const factory GraphqlLinkExcepion() = _$GraphqlLinkExcepionImpl;
 }
 
 /// @nodoc
-abstract class _$$GraphqlQueryUnAuthorizedCopyWith<$Res> {
-  factory _$$GraphqlQueryUnAuthorizedCopyWith(_$GraphqlQueryUnAuthorized value,
-          $Res Function(_$GraphqlQueryUnAuthorized) then) =
-      __$$GraphqlQueryUnAuthorizedCopyWithImpl<$Res>;
+abstract class _$$GraphqlQueryUnAuthorizedImplCopyWith<$Res> {
+  factory _$$GraphqlQueryUnAuthorizedImplCopyWith(
+          _$GraphqlQueryUnAuthorizedImpl value,
+          $Res Function(_$GraphqlQueryUnAuthorizedImpl) then) =
+      __$$GraphqlQueryUnAuthorizedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GraphqlQueryUnAuthorizedCopyWithImpl<$Res>
-    extends _$GraphqlNetworkErrorCopyWithImpl<$Res, _$GraphqlQueryUnAuthorized>
-    implements _$$GraphqlQueryUnAuthorizedCopyWith<$Res> {
-  __$$GraphqlQueryUnAuthorizedCopyWithImpl(_$GraphqlQueryUnAuthorized _value,
-      $Res Function(_$GraphqlQueryUnAuthorized) _then)
+class __$$GraphqlQueryUnAuthorizedImplCopyWithImpl<$Res>
+    extends _$GraphqlNetworkErrorCopyWithImpl<$Res,
+        _$GraphqlQueryUnAuthorizedImpl>
+    implements _$$GraphqlQueryUnAuthorizedImplCopyWith<$Res> {
+  __$$GraphqlQueryUnAuthorizedImplCopyWithImpl(
+      _$GraphqlQueryUnAuthorizedImpl _value,
+      $Res Function(_$GraphqlQueryUnAuthorizedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GraphqlQueryUnAuthorized implements GraphqlQueryUnAuthorized {
-  const _$GraphqlQueryUnAuthorized();
+class _$GraphqlQueryUnAuthorizedImpl implements GraphqlQueryUnAuthorized {
+  const _$GraphqlQueryUnAuthorizedImpl();
 
   @override
   String toString() {
@@ -253,10 +257,10 @@ class _$GraphqlQueryUnAuthorized implements GraphqlQueryUnAuthorized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GraphqlQueryUnAuthorized);
+            other is _$GraphqlQueryUnAuthorizedImpl);
   }
 
   @override
@@ -351,32 +355,32 @@ class _$GraphqlQueryUnAuthorized implements GraphqlQueryUnAuthorized {
 }
 
 abstract class GraphqlQueryUnAuthorized implements GraphqlNetworkError {
-  const factory GraphqlQueryUnAuthorized() = _$GraphqlQueryUnAuthorized;
+  const factory GraphqlQueryUnAuthorized() = _$GraphqlQueryUnAuthorizedImpl;
 }
 
 /// @nodoc
-abstract class _$$GraphqlMutationUnAuthorizedCopyWith<$Res> {
-  factory _$$GraphqlMutationUnAuthorizedCopyWith(
-          _$GraphqlMutationUnAuthorized value,
-          $Res Function(_$GraphqlMutationUnAuthorized) then) =
-      __$$GraphqlMutationUnAuthorizedCopyWithImpl<$Res>;
+abstract class _$$GraphqlMutationUnAuthorizedImplCopyWith<$Res> {
+  factory _$$GraphqlMutationUnAuthorizedImplCopyWith(
+          _$GraphqlMutationUnAuthorizedImpl value,
+          $Res Function(_$GraphqlMutationUnAuthorizedImpl) then) =
+      __$$GraphqlMutationUnAuthorizedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GraphqlMutationUnAuthorizedCopyWithImpl<$Res>
+class __$$GraphqlMutationUnAuthorizedImplCopyWithImpl<$Res>
     extends _$GraphqlNetworkErrorCopyWithImpl<$Res,
-        _$GraphqlMutationUnAuthorized>
-    implements _$$GraphqlMutationUnAuthorizedCopyWith<$Res> {
-  __$$GraphqlMutationUnAuthorizedCopyWithImpl(
-      _$GraphqlMutationUnAuthorized _value,
-      $Res Function(_$GraphqlMutationUnAuthorized) _then)
+        _$GraphqlMutationUnAuthorizedImpl>
+    implements _$$GraphqlMutationUnAuthorizedImplCopyWith<$Res> {
+  __$$GraphqlMutationUnAuthorizedImplCopyWithImpl(
+      _$GraphqlMutationUnAuthorizedImpl _value,
+      $Res Function(_$GraphqlMutationUnAuthorizedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GraphqlMutationUnAuthorized implements GraphqlMutationUnAuthorized {
-  const _$GraphqlMutationUnAuthorized();
+class _$GraphqlMutationUnAuthorizedImpl implements GraphqlMutationUnAuthorized {
+  const _$GraphqlMutationUnAuthorizedImpl();
 
   @override
   String toString() {
@@ -384,10 +388,10 @@ class _$GraphqlMutationUnAuthorized implements GraphqlMutationUnAuthorized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GraphqlMutationUnAuthorized);
+            other is _$GraphqlMutationUnAuthorizedImpl);
   }
 
   @override
@@ -482,29 +486,31 @@ class _$GraphqlMutationUnAuthorized implements GraphqlMutationUnAuthorized {
 }
 
 abstract class GraphqlMutationUnAuthorized implements GraphqlNetworkError {
-  const factory GraphqlMutationUnAuthorized() = _$GraphqlMutationUnAuthorized;
+  const factory GraphqlMutationUnAuthorized() =
+      _$GraphqlMutationUnAuthorizedImpl;
 }
 
 /// @nodoc
-abstract class _$$GraphqlQueryForbiddenCopyWith<$Res> {
-  factory _$$GraphqlQueryForbiddenCopyWith(_$GraphqlQueryForbidden value,
-          $Res Function(_$GraphqlQueryForbidden) then) =
-      __$$GraphqlQueryForbiddenCopyWithImpl<$Res>;
+abstract class _$$GraphqlQueryForbiddenImplCopyWith<$Res> {
+  factory _$$GraphqlQueryForbiddenImplCopyWith(
+          _$GraphqlQueryForbiddenImpl value,
+          $Res Function(_$GraphqlQueryForbiddenImpl) then) =
+      __$$GraphqlQueryForbiddenImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GraphqlQueryForbiddenCopyWithImpl<$Res>
-    extends _$GraphqlNetworkErrorCopyWithImpl<$Res, _$GraphqlQueryForbidden>
-    implements _$$GraphqlQueryForbiddenCopyWith<$Res> {
-  __$$GraphqlQueryForbiddenCopyWithImpl(_$GraphqlQueryForbidden _value,
-      $Res Function(_$GraphqlQueryForbidden) _then)
+class __$$GraphqlQueryForbiddenImplCopyWithImpl<$Res>
+    extends _$GraphqlNetworkErrorCopyWithImpl<$Res, _$GraphqlQueryForbiddenImpl>
+    implements _$$GraphqlQueryForbiddenImplCopyWith<$Res> {
+  __$$GraphqlQueryForbiddenImplCopyWithImpl(_$GraphqlQueryForbiddenImpl _value,
+      $Res Function(_$GraphqlQueryForbiddenImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GraphqlQueryForbidden implements GraphqlQueryForbidden {
-  const _$GraphqlQueryForbidden();
+class _$GraphqlQueryForbiddenImpl implements GraphqlQueryForbidden {
+  const _$GraphqlQueryForbiddenImpl();
 
   @override
   String toString() {
@@ -512,9 +518,10 @@ class _$GraphqlQueryForbidden implements GraphqlQueryForbidden {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GraphqlQueryForbidden);
+        (other.runtimeType == runtimeType &&
+            other is _$GraphqlQueryForbiddenImpl);
   }
 
   @override
@@ -609,29 +616,32 @@ class _$GraphqlQueryForbidden implements GraphqlQueryForbidden {
 }
 
 abstract class GraphqlQueryForbidden implements GraphqlNetworkError {
-  const factory GraphqlQueryForbidden() = _$GraphqlQueryForbidden;
+  const factory GraphqlQueryForbidden() = _$GraphqlQueryForbiddenImpl;
 }
 
 /// @nodoc
-abstract class _$$GraphqlMutationForbiddenCopyWith<$Res> {
-  factory _$$GraphqlMutationForbiddenCopyWith(_$GraphqlMutationForbidden value,
-          $Res Function(_$GraphqlMutationForbidden) then) =
-      __$$GraphqlMutationForbiddenCopyWithImpl<$Res>;
+abstract class _$$GraphqlMutationForbiddenImplCopyWith<$Res> {
+  factory _$$GraphqlMutationForbiddenImplCopyWith(
+          _$GraphqlMutationForbiddenImpl value,
+          $Res Function(_$GraphqlMutationForbiddenImpl) then) =
+      __$$GraphqlMutationForbiddenImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GraphqlMutationForbiddenCopyWithImpl<$Res>
-    extends _$GraphqlNetworkErrorCopyWithImpl<$Res, _$GraphqlMutationForbidden>
-    implements _$$GraphqlMutationForbiddenCopyWith<$Res> {
-  __$$GraphqlMutationForbiddenCopyWithImpl(_$GraphqlMutationForbidden _value,
-      $Res Function(_$GraphqlMutationForbidden) _then)
+class __$$GraphqlMutationForbiddenImplCopyWithImpl<$Res>
+    extends _$GraphqlNetworkErrorCopyWithImpl<$Res,
+        _$GraphqlMutationForbiddenImpl>
+    implements _$$GraphqlMutationForbiddenImplCopyWith<$Res> {
+  __$$GraphqlMutationForbiddenImplCopyWithImpl(
+      _$GraphqlMutationForbiddenImpl _value,
+      $Res Function(_$GraphqlMutationForbiddenImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GraphqlMutationForbidden implements GraphqlMutationForbidden {
-  const _$GraphqlMutationForbidden();
+class _$GraphqlMutationForbiddenImpl implements GraphqlMutationForbidden {
+  const _$GraphqlMutationForbiddenImpl();
 
   @override
   String toString() {
@@ -639,10 +649,10 @@ class _$GraphqlMutationForbidden implements GraphqlMutationForbidden {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GraphqlMutationForbidden);
+            other is _$GraphqlMutationForbiddenImpl);
   }
 
   @override
@@ -737,29 +747,29 @@ class _$GraphqlMutationForbidden implements GraphqlMutationForbidden {
 }
 
 abstract class GraphqlMutationForbidden implements GraphqlNetworkError {
-  const factory GraphqlMutationForbidden() = _$GraphqlMutationForbidden;
+  const factory GraphqlMutationForbidden() = _$GraphqlMutationForbiddenImpl;
 }
 
 /// @nodoc
-abstract class _$$GraphqlParsingErrorCopyWith<$Res> {
-  factory _$$GraphqlParsingErrorCopyWith(_$GraphqlParsingError value,
-          $Res Function(_$GraphqlParsingError) then) =
-      __$$GraphqlParsingErrorCopyWithImpl<$Res>;
+abstract class _$$GraphqlParsingErrorImplCopyWith<$Res> {
+  factory _$$GraphqlParsingErrorImplCopyWith(_$GraphqlParsingErrorImpl value,
+          $Res Function(_$GraphqlParsingErrorImpl) then) =
+      __$$GraphqlParsingErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GraphqlParsingErrorCopyWithImpl<$Res>
-    extends _$GraphqlNetworkErrorCopyWithImpl<$Res, _$GraphqlParsingError>
-    implements _$$GraphqlParsingErrorCopyWith<$Res> {
-  __$$GraphqlParsingErrorCopyWithImpl(
-      _$GraphqlParsingError _value, $Res Function(_$GraphqlParsingError) _then)
+class __$$GraphqlParsingErrorImplCopyWithImpl<$Res>
+    extends _$GraphqlNetworkErrorCopyWithImpl<$Res, _$GraphqlParsingErrorImpl>
+    implements _$$GraphqlParsingErrorImplCopyWith<$Res> {
+  __$$GraphqlParsingErrorImplCopyWithImpl(_$GraphqlParsingErrorImpl _value,
+      $Res Function(_$GraphqlParsingErrorImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GraphqlParsingError implements GraphqlParsingError {
-  const _$GraphqlParsingError();
+class _$GraphqlParsingErrorImpl implements GraphqlParsingError {
+  const _$GraphqlParsingErrorImpl();
 
   @override
   String toString() {
@@ -767,9 +777,10 @@ class _$GraphqlParsingError implements GraphqlParsingError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GraphqlParsingError);
+        (other.runtimeType == runtimeType &&
+            other is _$GraphqlParsingErrorImpl);
   }
 
   @override
@@ -864,5 +875,5 @@ class _$GraphqlParsingError implements GraphqlParsingError {
 }
 
 abstract class GraphqlParsingError implements GraphqlNetworkError {
-  const factory GraphqlParsingError() = _$GraphqlParsingError;
+  const factory GraphqlParsingError() = _$GraphqlParsingErrorImpl;
 }

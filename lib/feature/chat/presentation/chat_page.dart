@@ -1,4 +1,3 @@
-import 'package:bloc_architecture/feature/common/presentation/main_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -6,12 +5,13 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const MainBottomNavigationBar(),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text('ChatPage'),
-      ),
+    return Column(
+      children: [
+        AppBar(
+          automaticallyImplyLeading: false,
+          title: const Text('ChatPage'),
+        )
+      ],
     );
   }
 }

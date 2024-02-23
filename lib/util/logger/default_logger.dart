@@ -48,14 +48,14 @@ abstract class Log {
     dynamic error,
     StackTrace? stackTrace,
   ]) =>
-      logger.w(message, error, stackTrace);
+      logger.w(message, error: error, stackTrace: stackTrace);
 
   static void e(
     dynamic message, [
     dynamic error,
     StackTrace? stackTrace,
   ]) =>
-      logger.e(message, error, stackTrace);
+      logger.e(message, error: error, stackTrace: stackTrace);
 
   static String toPrettyJson(Map jsonMap) {
     try {

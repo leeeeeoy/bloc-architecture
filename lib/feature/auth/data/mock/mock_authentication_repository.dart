@@ -7,8 +7,7 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: AuthenticationRepository)
 class MockAuthenticationRepository implements AuthenticationRepository {
   @override
-  Future<Authentication> signIn(SignInUseCaseParam param) =>
-      Future.delayed(const Duration(seconds: 1)).then(
+  Future<Authentication> signIn(SignInUseCaseParam param) => Future.delayed(const Duration(seconds: 1)).then(
         (value) => const Authentication(accessToken: 'accessToken'),
       );
 
