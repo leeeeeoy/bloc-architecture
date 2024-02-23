@@ -254,7 +254,7 @@ void main() {
       verify(() => navigatorObserver.didPop(any(), any()));
     });
 
-    testWidgets('성공 시, HomePage로 이동한다.', (tester) async {
+    testWidgets('성공 시, MainScreen으로 이동한다.', (tester) async {
       whenListen(
         signInBloc,
         Stream.fromIterable([
