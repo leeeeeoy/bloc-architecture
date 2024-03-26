@@ -40,8 +40,7 @@ void main() {
     group('SignInRequested', () {
       blocTest<SignInBloc, SignInState>(
         '요청 성공: SignInLoading, SignInSucceed 반영된다.',
-        setUp: () => when(() => signInUseCase.execute(mockParam))
-            .thenAnswer((_) => Future.value(mockAuthentication)),
+        setUp: () => when(() => signInUseCase.execute(mockParam)).thenAnswer((_) => Future.value(mockAuthentication)),
         build: () => signInBloc,
         act: (bloc) => bloc.add(const SignInRequested(
           email: mockEmail,
@@ -55,9 +54,7 @@ void main() {
 
       blocTest<SignInBloc, SignInState>(
         '요청 실패: SignInLoading, SignInError 반영된다.',
-        setUp: () => when(
-          () => signInUseCase.execute(mockParam),
-        ).thenThrow(Exception()),
+        setUp: () => when(() => signInUseCase.execute(mockParam)).thenThrow(Exception()),
         build: () => signInBloc,
         act: (bloc) => bloc.add(const SignInRequested(
           email: mockEmail,

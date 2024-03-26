@@ -28,11 +28,7 @@ void main() {
     navigatorObserver = MockNavigatorObserver();
   });
 
-  group('SignInPage', () {
-    testWidgets('초기 렌더링 확인', (tester) async {
-      when(() => signInBloc.state).thenAnswer((invocation) => const SignInInitial());
-
-      await tester.pumpWidget(
+  Future<void> pumpSignInPage(WidgetTester tester) async => await tester.pumpWidget(
         MaterialApp(
           home: BlocProvider.value(
             value: signInBloc,
@@ -40,24 +36,21 @@ void main() {
           ),
         ),
       );
+
+  group('SignInPage', () {
+    testWidgets('초기 렌더링 확인', (tester) async {
+      when(() => signInBloc.state).thenAnswer((_) => const SignInInitial());
+
+      await pumpSignInPage(tester);
 
       expect(find.text('SignInPage'), findsOneWidget);
       expect(find.byType(ElevatedButton), findsOneWidget);
     });
 
     testWidgets('키보드가 올라왔을 때, 화면을 누르면 키보드가 내려간다.', (tester) async {
-      when(() => signInBloc.state).thenAnswer(
-        (invocation) => const SignInInitial(),
-      );
+      when(() => signInBloc.state).thenAnswer((_) => const SignInInitial());
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: BlocProvider.value(
-            value: signInBloc,
-            child: const SignInPage(),
-          ),
-        ),
-      );
+      await pumpSignInPage(tester);
 
       await tester.tap(find.byKey(const Key('emailTextField')));
 
@@ -69,18 +62,9 @@ void main() {
     });
 
     testWidgets('email, password를 입력한다', (tester) async {
-      when(() => signInBloc.state).thenAnswer(
-        (invocation) => const SignInInitial(),
-      );
+      when(() => signInBloc.state).thenAnswer((_) => const SignInInitial());
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: BlocProvider.value(
-            value: signInBloc,
-            child: const SignInPage(),
-          ),
-        ),
-      );
+      await pumpSignInPage(tester);
 
       await tester.enterText(
         find.byKey(const Key('emailTextField')),
@@ -97,18 +81,9 @@ void main() {
     });
 
     testWidgets('빈 값 입력 시, 오류 메세지를 띄운다', (tester) async {
-      when(() => signInBloc.state).thenAnswer(
-        (invocation) => const SignInInitial(),
-      );
+      when(() => signInBloc.state).thenAnswer((_) => const SignInInitial());
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: BlocProvider.value(
-            value: signInBloc,
-            child: const SignInPage(),
-          ),
-        ),
-      );
+      await pumpSignInPage(tester);
 
       await tester.tap(find.byType(ElevatedButton));
 
@@ -119,18 +94,9 @@ void main() {
     });
 
     testWidgets('IconButton 클릭 시 email, password가 삭제된다.', (tester) async {
-      when(() => signInBloc.state).thenAnswer(
-        (invocation) => const SignInInitial(),
-      );
+      when(() => signInBloc.state).thenAnswer((_) => const SignInInitial());
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: BlocProvider.value(
-            value: signInBloc,
-            child: const SignInPage(),
-          ),
-        ),
-      );
+      await pumpSignInPage(tester);
 
       await tester.enterText(
         find.byKey(const Key('emailTextField')),
@@ -150,25 +116,16 @@ void main() {
     });
 
     testWidgets('버튼을 눌렀을 때, 이벤트가 들어간다', (tester) async {
-      when(() => signInBloc.state).thenAnswer(
-        (invocation) => const SignInInitial(),
-      );
+      when(() => signInBloc.state).thenAnswer((_) => const SignInInitial());
 
-      when(
-        () => signInBloc.add(const SignInRequested(
-          email: 'email',
-          password: 'password',
-        )),
-      ).thenAnswer((_) {});
+      when(() => signInBloc.add(
+            const SignInRequested(
+              email: 'email',
+              password: 'password',
+            ),
+          )).thenAnswer((_) {});
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: BlocProvider.value(
-            value: signInBloc,
-            child: const SignInPage(),
-          ),
-        ),
-      );
+      await pumpSignInPage(tester);
 
       await tester.enterText(
         find.byKey(const Key('emailTextField')),
@@ -191,18 +148,9 @@ void main() {
     });
 
     testWidgets('로딩 시, 인디케이터를 띄운다.', (tester) async {
-      when(() => signInBloc.state).thenAnswer(
-        (invocation) => const SignInLoading(),
-      );
+      when(() => signInBloc.state).thenAnswer((_) => const SignInLoading());
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: BlocProvider.value(
-            value: signInBloc,
-            child: const SignInPage(),
-          ),
-        ),
-      );
+      await pumpSignInPage(tester);
 
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
@@ -214,14 +162,7 @@ void main() {
         initialState: const SignInInitial(),
       );
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: BlocProvider.value(
-            value: signInBloc,
-            child: const SignInPage(),
-          ),
-        ),
-      );
+      await pumpSignInPage(tester);
 
       await tester.pumpAndSettle();
 

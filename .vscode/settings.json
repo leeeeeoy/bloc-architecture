@@ -3,8 +3,8 @@
         "**/*.freezed.dart": true,
         "**/*.g.dart": true
     },
-    "bloc.newCubitTemplate.type": "freezed",
-    "bloc.newBlocTemplate.type": "freezed",
+    "bloc.newCubitTemplate.type": "equatable",
+    "bloc.newBlocTemplate.type": "equatable",
     "dart.lineLength": 120,
     "[dart]": {
         "editor.formatOnSave": true,
